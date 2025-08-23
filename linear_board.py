@@ -8,51 +8,64 @@ class LinearBoard():
     None representa que una posicion esta vacia.
     """
    
-    def __init__(self, BOARD):
-        self.pos1 = BOARD["pos1"]
-        self.pos2 = BOARD["pos2"]
-        self.pos3 = BOARD["pos3"]
-        self.pos4 = BOARD["pos4"]
+    def __init__(self):
+        self.column =[None for i in range(board_leng)]
         self.is_full = False
 
-    def add(self, ficha):
-        self.resultresult = ""
-        memory = None
-        counter = 0
-        if ficha != "x" and ficha != "o":
-            self.result = "Insert a valid ficha"
-        else: 
-            self.result = ficha 
-
-        for i in BOARD:
-            counter += 1
-            
-            if BOARD[i] != None:
-                BOARD[memory] = self.result
-            if counter == len(BOARD) and BOARD[i] == None:
-                 BOARD[i] = self.result    
+    def add(self, char):
+        "Juega en la primer posicion disponible"
+    
+        if None in self.column:#buscamos la primera posicion libre"
+            i = self.column.index(None)
+        #lo sustituimos por char
+            self.column[i]=char
+        else:
+            print(f"El tablero esta lleno")    
     
     
     def full(self):
-        if self.pos1 != None and self.pos2 != None and self.pos3 != None and self.pos4 != None:
-            self.is_full = True
+        isfull = 0
+
+        for i in self.column:
+            if i != None:
+                isfull +=1
+        if isfull == board_leng:
+            return True        
+        else:
+            return False
                 
 
     def victory(self):
-        win_strike_x = 0
-        win_strike_o = 0 
-        for i in BOARD:
-            if BOARD[i]== "x":
-                win_strike_x +=1
-                win_strike_o = 0
-            elif BOARD[i] == "o":
-                win_strike_o += 1
-                win_strike_x = 0
+        x_win= 0
+        o_win = 0
+        for i in self.column:
+            if i == "x":
+                x_win +=1
+                o_win = 0
+            elif i== "o":
+                o_win +=1
+                x_win = 0
 
-        if win_strike_x == VICTORY_STRIKE or win_strike_o == VICTORY_STRIKE:
-            return True                  
+        if x_win == VICTORY_STRIKE or o_win == VICTORY_STRIKE:
+
+            return True            
         
+    def is_draw(self):
+        x_win= 0
+        o_win = 0
+        for i in self.column:
+            if i == "x":
+                x_win +=1
+                o_win = 0
+            elif i== "o":
+                o_win +=1
+                x_win = 0
 
+        if x_win == VICTORY_STRIKE or o_win == VICTORY_STRIKE:
+
+            return False    
+        else:
+            return True           
             
             
 
