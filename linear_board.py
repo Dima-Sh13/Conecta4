@@ -10,22 +10,25 @@ class LinearBoard():
    
     def __init__(self):
         self.column =[None for i in range(board_leng)]
-        self.is_full = False
+      
 
     def add(self, char):
         "Juega en la primer posicion disponible"
     
-        if None in self.column:#buscamos la primera posicion libre"
+        if self.full() == False:
             i = self.column.index(None)
-        #lo sustituimos por char
-            self.column[i]=char
-        else:
-            print(f"El tablero esta lleno")    
+            self.column[i]=char  #lo sustituimos por char
+      
+      
     
     
     def full(self):
+        """
+        Mi version de full, se recorre la lista 
+        y si no hay ningun None devuelve True
+        """
+        """
         isfull = 0
-
         for i in self.column:
             if i != None:
                 isfull +=1
@@ -33,40 +36,31 @@ class LinearBoard():
             return True        
         else:
             return False
-                
+        """
+        return self.column[-1] != None        
 
-    def victory(self):
-        x_win= 0
-        o_win = 0
+    def victory(self, char):
+        strike = 0
         for i in self.column:
-            if i == "x":
-                x_win +=1
-                o_win = 0
-            elif i== "o":
-                o_win +=1
-                x_win = 0
-
-        if x_win == VICTORY_STRIKE or o_win == VICTORY_STRIKE:
-
-            return True            
-        
+            if i == char:
+                strike += 1
+                if strike == VICTORY_STRIKE:
+                    return True
+            else:
+                strike = 0
+        return False
     def is_draw(self):
-        x_win= 0
-        o_win = 0
-        for i in self.column:
-            if i == "x":
-                x_win +=1
-                o_win = 0
-            elif i== "o":
-                o_win +=1
-                x_win = 0
-
-        if x_win == VICTORY_STRIKE or o_win == VICTORY_STRIKE:
-
-            return False    
-        else:
-            return True           
-            
+       """
+       No hay victoria ni de cchar "x" ni de char "o" 
+       
+       Version curso:
+       return (self.victory("x") == False) and (self.victory("o") == False)
+       
+       """
+       #Mi version 
+       if not self.victory("x") or not self.victory("o"):
+           return True
+     
             
 
           
