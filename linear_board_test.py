@@ -8,7 +8,7 @@ def test_empty_board():
     empty = LinearBoard()
     assert empty != None
     assert empty.full() == False
-    #assert empty.is_victory("x") == False
+    
 
 
 def test_add():

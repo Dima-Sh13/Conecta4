@@ -22,13 +22,15 @@ def test_find_n():
     end = ["x", "0", 1]
     several = [0,0,3,4,1,3,2,1,3,4]
 
-    assert find_n (none, needle) == False
-    assert find_n (beginning, needle) == 1
-    assert find_n (end, needle) == 1
-    assert find_n (several, needle) == 2
+    assert find_n (none, needle, -1) == False
+    assert find_n (beginning, needle, 1) 
+    assert find_n (end, needle, 2) == False
+    assert find_n (several, needle, 2)
 
 def test_find_streak():
     needle = 1
     several = [0,0,3,4,1,1,1,2,3,4]
+    several2 = [0,0,3,4,1,8,1,2,3,4]
 
     assert find_streak(several, needle) == True
+    assert find_streak(several2, needle) == False

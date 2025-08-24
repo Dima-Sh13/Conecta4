@@ -49,6 +49,7 @@ class LinearBoard():
             else:
                 strike = 0
         return False
+   
     def is_draw(self):
        """
        No hay victoria ni de cchar "x" ni de char "o" 
