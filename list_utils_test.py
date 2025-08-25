@@ -30,7 +30,10 @@ def test_find_n():
 def test_find_streak():
     needle = 1
     several = [0,0,3,4,1,1,1,2,3,4]
-    several2 = [0,0,3,4,1,8,1,2,3,4]
+    several2 = [0,0,0,0,1,8,1,2,3,4]
 
-    assert find_streak(several, needle) == True
-    assert find_streak(several2, needle) == False
+    assert find_streak(several, needle,3) == True
+    assert find_streak(several2, needle,3) == False
+    assert find_streak (several2, 6,1) == False
+    assert find_streak (several, 42,3) == False
+    assert find_streak(several2, 0,4) == True

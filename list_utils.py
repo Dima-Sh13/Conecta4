@@ -15,7 +15,7 @@ def find_one(list, needle):
         index += 1
 
     return found        
-    """
+    
     #Mi version
     pos = []
     if needle in list:
@@ -23,6 +23,9 @@ def find_one(list, needle):
         return True
     else:
         return False
+    """
+    return find_n(list, needle, 1)
+
 
 def find_n(list,needle, n):
     """
@@ -41,7 +44,7 @@ def find_n(list,needle, n):
 
     return result    
 
-def find_streak(list,needle):
+def find_streak(list,needle, n):
     """
     Encuentra si hay un streak de 3 ganador.
     """
@@ -51,7 +54,7 @@ def find_streak(list,needle):
     while index < len(list):
         if needle == list[index] and  needle == mem:
             streak += 1 
-            if streak == VICTORY_STRIKE:
+            if streak == n:
                 return True 
         else :
             streak = 1      
@@ -60,7 +63,3 @@ def find_streak(list,needle):
         
     return False
   
-needle = 1
-several = [0,0,3,4,1,1,1,2,3,4]
-
-find_streak(several, needle)
