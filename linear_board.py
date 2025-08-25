@@ -1,5 +1,5 @@
 from settings import *
-
+from list_utils import find_streak
 
 class LinearBoard():
     """
@@ -26,8 +26,6 @@ class LinearBoard():
         """
         Mi version de full, se recorre la lista 
         y si no hay ningun None devuelve True
-        """
-        """
         isfull = 0
         for i in self.column:
             if i != None:
@@ -40,6 +38,8 @@ class LinearBoard():
         return self.column[-1] != None        
 
     def victory(self, char):
+        """
+        Mi version:
         strike = 0
         for i in self.column:
             if i == char:
@@ -49,7 +49,10 @@ class LinearBoard():
             else:
                 strike = 0
         return False
-   
+        """
+        return find_streak(self.column,char,3)
+    
+    
     def is_draw(self):
        """
        No hay victoria ni de cchar "x" ni de char "o" 

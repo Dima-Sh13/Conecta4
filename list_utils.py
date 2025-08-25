@@ -46,20 +46,21 @@ def find_n(list,needle, n):
 
 def find_streak(list,needle, n):
     """
-    Encuentra si hay un streak de 3 ganador.
+    Encuentra si hay un streak de n repeticiones.
     """
     mem = ""
     streak = 1
     index = 0
-    while index < len(list):
-        if needle == list[index] and  needle == mem:
-            streak += 1 
-            if streak == n:
-                return True 
-        else :
-            streak = 1      
-        mem = list[index]
-        index += 1
+    if n >= 0:
+        while index < len(list):
+            if needle == list[index] and  needle == mem:
+                streak += 1 
+                if streak == n:
+                    return True 
+            else :
+                streak = 1      
+            mem = list[index]
+            index += 1
         
     return False
   
