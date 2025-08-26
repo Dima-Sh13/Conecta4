@@ -7,6 +7,15 @@ class SqueareBoard():
     """
     Representa un tablero cuadrado de 4 LinearBoard.
     """
+    @classmethod
+    def fromList(cls, list_of_lists):
+        """
+        Transforma una lista de listas en una lista de LinearBoard.
+        """
+        bboard = cls()
+        bboard.board = list(map(lambda element: LinearBoard.fromList(element), list_of_lists))
+        return bboard
+
     def __init__(self):
         self.board = [LinearBoard() for i in range(board_leng)]
         self.index = 0
@@ -54,6 +63,22 @@ class SqueareBoard():
         return False
     def s_victory(self,char):
         return False
+
+    #dunders
+    def __repr__(self):
+        return f"{self.__class__}:{self.board}"
+
+
+
+
+
+
+
+
+
+
+
+
 
 board = SqueareBoard()
 

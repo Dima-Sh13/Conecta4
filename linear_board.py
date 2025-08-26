@@ -7,7 +7,12 @@ class LinearBoard():
     Donde X es un jugador y O el otro.
     None representa que una posicion esta vacia.
     """
-   
+    @classmethod
+    def fromList(cls,list):
+
+        board = cls()
+        board.column = list
+        return board
     def __init__(self):
         self.column =[None for i in range(board_leng)]
       
@@ -65,7 +70,6 @@ class LinearBoard():
        if not self.victory("x") or not self.victory("o"):
            return True
      
-            
 
           
     
