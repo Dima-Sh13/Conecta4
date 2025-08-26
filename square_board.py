@@ -4,29 +4,57 @@ from list_utils import find_streak
 
 
 class SqueareBoard():
+    """
+    Representa un tablero cuadrado de 4 LinearBoard.
+    """
     def __init__(self):
-        self.board = [None for i in range(board_leng)],[None for i in range(board_leng)],[None for i in range(board_leng)],[None for i in range(board_leng)]
+        self.board = [LinearBoard() for i in range(board_leng)]
+        self.index = 0
 
-    def add(self,char):
-        index=0
-        for i in self.board:
-            for element in i:
-                if i[index] == None:
-                    i[index] = char
+    def full(self):
+        """
+        True si todas los LinearBoard estan llenos.
+        """
+        #Mi version
+        is_full = True
+        for list in self.board:
+            for element in list:
+                if element == None:
+                    is_full = False
                     break
-                else:
-                    index +=1
-            break    
+                    
+        return is_full                
+                
+        """
+        Version curso:
+        (mas elegante que la mia)
+        result = True
+        for lb in self.board:
+            result = result and lb.full()
+        return result    
+        """
             
+    def victory(self,char):
+        #return self.h_victory or self.v_victory or 
+        pass      
+            
+    def v_victory(self,char):
+        result = False
+        for list in self.board:
+            result = list.victory(char)
+            if result == True:
+                break
+
+        return result    
+
+    def h_victory(self,char):
+        return False
+
+    def r_victory(self,char):
+        return False
+    def s_victory(self,char):
+        return False
 
 board = SqueareBoard()
-s
 
-print(board.board)
-board.add(x)
-board.add(x)
-board.add(x)
-board.add(x)
-board.add(x)
-board.add(x)
-print(board.board)    
+
