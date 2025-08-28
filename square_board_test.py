@@ -2,19 +2,25 @@ import pytest
 from square_board import *
 from linear_board import *
 
-def square_board_test():
+def square_board():
     b = SqueareBoard()
     assert b.full() == False
     assert b.victory("o") == False
     assert b == True
     assert b.victory("x") == False
 
-def v_victory_test():
+def test_v_victory():
     vertical = SqueareBoard.fromList([["o","x","x","x"],
                                       [None,None,None,None],
                                       [None,None,None,None],
                                       [None,None,None,None]])
     pass
+
+def test_vertical_victory():
+    vertical_victory = SqueareBoard.fromList(["x",None,None,None],
+                                             ["x","o",None,None],
+                                             ["x","o",None,None],
+                                             ["x","o",None,None])
 
 
 def test_add():

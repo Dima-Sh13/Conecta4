@@ -63,7 +63,9 @@ class SqueareBoard():
         return False
     def s_victory(self,char):
         return False
-
+    def first_elements(self, matrix):
+        for i in matrix:
+            return i[0]
     #dunders
     def __repr__(self):
         return f"{self.__class__}:{self.board}"
