@@ -43,19 +43,19 @@ class LinearBoard():
         return self.column[-1] != None        
 
     def victory(self, char):
-        """
-        Mi version:
-        strike = 0
+        
+        #Mi version:
+        strike = 1
         for i in self.column:
             if i == char:
                 strike += 1
                 if strike == VICTORY_STRIKE:
                     return True
             else:
-                strike = 0
+                strike = 1
         return False
-        """
-        return find_streak(self.column,char,3)
+        
+        #return find_streak(self.column,char,3)
     
     
     def is_draw(self):

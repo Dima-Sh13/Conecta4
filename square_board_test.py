@@ -16,12 +16,12 @@ def test_v_victory():
                                       [None,None,None,None]])
     pass
 
-def test_vertical_victory():
-    vertical_victory = SqueareBoard.fromList(["x",None,None,None],
+def test_h_victory():
+    horizontal_victory = SqueareBoard.fromList([["x",None,None,None],
                                              ["x","o",None,None],
                                              ["x","o",None,None],
-                                             ["x","o",None,None])
-
+                                             ["x","o",None,None]])
+    assert horizontal_victory.h_victory("x") == True
 
 def test_add():
     pass

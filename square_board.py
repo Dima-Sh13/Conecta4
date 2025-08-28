@@ -12,13 +12,13 @@ class SqueareBoard():
         """
         Transforma una lista de listas en una lista de LinearBoard.
         """
-        bboard = cls()
-        bboard.board = list(map(lambda element: LinearBoard.fromList(element), list_of_lists))
-        return bboard
+        board = cls()
+        board.board = list(map(lambda element: LinearBoard.fromList(element), list_of_lists))
+        return board
 
     def __init__(self):
         self.board = [LinearBoard() for i in range(board_leng)]
-        self.index = 0
+        
 
     def full(self):
         """
@@ -57,15 +57,32 @@ class SqueareBoard():
         return result    
 
     def h_victory(self,char):
-        return False
+        result = False
+        matrix = self.convert_to_matrix(self.board)
+        for i in matrix:
+            g = LinearBoard.fromList(i)
+            print(g)
+            result = g.victory(char)
+
+            if result == True:
+                break
+
+        return result    
+
 
     def r_victory(self,char):
         return False
     def s_victory(self,char):
         return False
-    def first_elements(self, matrix):
-        for i in matrix:
-            return i[0]
+    def convert_to_matrix(self, matrix):
+        new_matrix=[[],[],[],[]]
+        index = 0
+        index2 = 0
+        for i in new_matrix:
+            for x in matrix:
+                i.append(x.column[index])
+            index += 1
+        return new_matrix         
     #dunders
     def __repr__(self):
         return f"{self.__class__}:{self.board}"
