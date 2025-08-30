@@ -21,7 +21,13 @@ def test_h_victory():
                                              ["x","o",None,None],
                                              ["x","o",None,None],
                                              ["x","o",None,None]])
+    horizontal_victory2 =  SqueareBoard.fromList([["o","x",None,"o"],
+                                             ["x","o",None,"o"],
+                                             ["o","x",None,"o"],
+                                             ["x","o",None,"o"]])
     assert horizontal_victory.h_victory("x") == True
+    assert horizontal_victory2.h_victory("o") == True
+
 
 def test_add():
     pass
