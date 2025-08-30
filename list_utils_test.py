@@ -37,3 +37,7 @@ def test_find_streak():
     assert find_streak (several2, 6,1) == False
     assert find_streak (several, 42,3) == False
     assert find_streak(several2, 0,4) == True
+
+def test_first_elements():
+    original =[[0,7,3],[4,0,1]]
+    assert first_elements(original) == [0,4]          
