@@ -44,8 +44,9 @@ class SqueareBoard():
         """
             
     def victory(self,char):
-        #return self.h_victory or self.v_victory or 
-        pass      
+        vic = False
+        return self.v_victory(char) or self.h_victory(char)
+              
             
     def v_victory(self,char):
         result = False
@@ -71,7 +72,15 @@ class SqueareBoard():
 
 
     def r_victory(self,char):
-        return False
+        pos = 0
+        index = 0
+        streak = 1
+        for i in self.board:
+            column = i.column
+            for x in column:
+                if x == char:
+                    column[x] = pos
+                
     def s_victory(self,char):
         return False
     def convert_to_matrix(self, matrix):
