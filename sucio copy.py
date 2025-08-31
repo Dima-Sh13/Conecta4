@@ -196,17 +196,26 @@ class SqueareBoard():
         pos = []
         for i in self.board:
             lis = i.column
-            index2 = 0
+            index = 0
             for x in lis:
-                
                 if x == char:
-                    pos.append(index2)
-                index2 += 1    
-            dic[self.board.index(i)] = pos
-            pos = []
-            index += 1       
-        w_k = 0
-        w_pos = dic[0][0]
+                    
+                    if index == index2 +1:
+                        index2 = lis.index(char)
+                        strike += 1
+                        if strike == VICTORY_STRIKE:
+                            vic = True
+                        
+                    
+
+                        
+                        
+                
+                
+                index +=1
+        return vic        
+                    
+          
         """
         for key, values in dic.items():
             for i in values[1:]:
@@ -217,37 +226,21 @@ class SqueareBoard():
                        vic = True
                        break 
                        
-        """
+        
         r_strike = 1
         s_strike = 1
+        val = []
+        char1 = 
         for values in dic.values():
-            
-                print(values[0])
-                """
-                for x in values[1]:
-                    if x == i +1:
-                        w_k = x +1
-                        r_strike += 1
-                        for y in values[2]:
-                            if  y == w_k +1:
-                                r_strike +=1
-                                if r_strike == VICTORY_STRIKE:
-                                    vic = True
-                                    break
+            val.append(values)
+            for x in val:
+                for i in x:
 
-                    if x == i-1:
-                        s_strike += 1
-                        w_k = i-1
-                        for y in values[2]:
-                            if  y == w_k - 1:
-                                s_strike += 1
-                                if s_strike == VICTORY_STRIKE:
-                                    vic = True
-                                    break
-                """
+
+                
         return vic                        
 
-
+        """
 
             
         
