@@ -187,13 +187,10 @@ class SqueareBoard():
 
         return result    
     def r_victory(self,char):
-        #f_element = self.board[index].column.index(char) # me devuelve la primera posicion de char en la primera columna.
         vic= False
         strike = 1
         index = 0
         index2 = 0
-        dic = {}
-        pos = []
         for i in self.board:
             lis = i.column
             index = 0
@@ -205,15 +202,17 @@ class SqueareBoard():
                         strike += 1
                         if strike == VICTORY_STRIKE:
                             vic = True
+                
+                index +=1
+        return vic        
+        
+    
                         
                     
 
                         
                         
                 
-                
-                index +=1
-        return vic        
                     
           
         """

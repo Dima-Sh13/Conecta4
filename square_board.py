@@ -72,14 +72,25 @@ class SqueareBoard():
 
 
     def r_victory(self,char):
-        pos = 0
+      def r_victory(self,char):
+        vic= False
+        strike = 1
         index = 0
-        streak = 1
+        index2 = 0
         for i in self.board:
-            column = i.column
-            for x in column:
+            lis = i.column
+            index = 0
+            for x in lis:
                 if x == char:
-                    column[x] = pos
+                    
+                    if index == index2 +1:
+                        index2 = lis.index(char)
+                        strike += 1
+                        if strike == VICTORY_STRIKE:
+                            vic = True
+                
+                index +=1
+        return vic        
                 
     def s_victory(self,char):
         return False
